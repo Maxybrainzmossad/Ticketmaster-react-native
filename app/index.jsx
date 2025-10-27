@@ -16,7 +16,6 @@ const SignIn = () => {
         <ThemedInput 
             style={styles.input}
             value={email}
-            placeholder={'example@gmail.com'}
             onChangeText={(text) => setEmail(text)}
             keyboardType="email-address"
 
