@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "MyLatestApp",
-    "slug": "MyLatestApp",
+    "name": "Ticketmaster-React-native",
+    "slug": "Ticketmaster-React-native",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
