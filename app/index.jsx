@@ -1,9 +1,10 @@
-import { StyleSheet, Text, Pressable } from 'react-native'
+import { StyleSheet, Text } from 'react-native'
 import ThemedInput from '../components/ThemedInput'
 import ThemedView from '../components/ThemedView'
 import ThemedButton from '../components/ThemedButton'
 import Spacer from '../components/Spacer'
 import { useState } from 'react'
+import { Link } from 'expo-router'
 
 const SignIn = () => {
 
@@ -18,12 +19,12 @@ const SignIn = () => {
             value={email}
             onChangeText={(text) => setEmail(text)}
             keyboardType="email-address"
-
         />
         <Spacer height={60} />
         <ThemedButton style={styles.btn}>
           <Text style={styles.btntext}>Sign In</Text>
         </ThemedButton>
+        <Link href={'event'}>got to event</Link>
     </ThemedView>
   )
 }
