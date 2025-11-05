@@ -1,0 +1,118 @@
+{
+  "info": {
+    "name": "Ticket Backend API",
+    "_postman_id": "e6c21f8d-bf72-4d4b-9204-collection",
+    "description": "Postman requests for ticket backend",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Create Ticket",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"user_id\": 1,\n  \"artist_name\": \"Fall Out Boy\",\n  \"event_name\": \"So Much For (Tour) Dust\",\n  \"section\": \"LAWN30\",\n  \"row_name\": \"GA3\",\n  \"seat\": \"20\",\n  \"event_date\": \"2025-07-18\",\n  \"event_time\": \"18:30:00\",\n  \"location\": \"Blossom Music Center\",\n  \"ticket_type\": \"Seated Ticket - Side view\",\n  \"level_name\": \"Side view\",\n  \"number_value\": 1,\n  \"image_url\": \"https://example.com/ticket.png\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/tickets",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "tickets"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Get Ticket by ID",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:3000/api/tickets/1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "tickets",
+            "1"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Get All Tickets For User",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:3000/api/tickets/user/1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "tickets",
+            "user",
+            "1"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Update Ticket",
+      "request": {
+        "method": "PUT",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"user_id\": 1,\n  \"artist_name\": \"Updated Artist\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/tickets/1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "tickets",
+            "1"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Delete Ticket",
+      "request": {
+        "method": "DELETE",
+        "body": {
+          "mode": "raw",
+          "raw": "{ \"user_id\": 1 }"
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/tickets/1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "tickets",
+            "1"
+          ]
+        }
+      }
+    }
+  ]
+}
