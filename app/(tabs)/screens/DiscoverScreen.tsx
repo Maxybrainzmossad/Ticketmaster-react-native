@@ -161,6 +161,7 @@ export default function DiscoverScreen() {
 
         {/* Placeholder additional content */}
         <View style={{ padding: 16 }}>
+          <>
           <Text style={styles.sectionTitle}>Popular Near You</Text>
           <View style={styles.listCard}>
             <Image
@@ -173,37 +174,17 @@ export default function DiscoverScreen() {
               <Text style={{ fontWeight: "700", fontSize: 16 }}>Fela Kuti Revival</Text>
               <Text style={{ color: "#666", marginTop: 6 }}>World / Afrobeat • Various dates</Text>
             </View>
+               <View style={{ flex: 1, paddingLeft: 12 }}>
+              <Text style={{ fontWeight: "700", fontSize: 16 }}>Fela Kuti Revival</Text>
+              <Text style={{ color: "#666", marginTop: 6 }}>World / Afrobeat • Various dates</Text>
+            </View>
+            
           </View>
+          </>
         </View>
       </ScrollView>
 
-      {/* BOTTOM NAV */}
-      <View style={styles.bottomNav}>
-        <TouchableOpacity style={styles.navItem}>
-          <Ionicons name="search" size={24} color="#0861FF" />
-          <Text style={[styles.navText, { color: "#0861FF" }]}>Discover</Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity style={styles.navItem}>
-          <Ionicons name="heart-outline" size={22} color="#444" />
-          <Text style={styles.navText}>For You</Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity style={styles.navItem}>
-          <Ionicons name="ticket-outline" size={22} color="#444" />
-          <Text style={styles.navText}>My Tickets</Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity style={styles.navItem}>
-          <Ionicons name="wallet-outline" size={22} color="#444" />
-          <Text style={styles.navText}>Sell</Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity style={styles.navItem}>
-          <Ionicons name="person-outline" size={22} color="#444" />
-          <Text style={styles.navText}>My Account</Text>
-        </TouchableOpacity>
-      </View>
+     
     </SafeAreaView>
   );
 }
