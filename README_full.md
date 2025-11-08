@@ -122,4 +122,51 @@ This is the complete backend setup instructions.
 
 -
 
+# 9. Deployment & networking (how to make it work on LAN, ngrok, Vercel, or hosted services)
+
+This project can be run locally on your network, exposed temporarily with ngrok, or deployed to a hosted service. Below are minimal, actionable options.
+
+A. Run on local network (for development / device testing)
+- Make sure your server binds to 0.0.0.0 or the default (most Express apps do).
+- Start server: node server.js
+- Find your machine IP (Windows: ipconfig; mac/linux: ifconfig).
+- In the mobile app's api.js set BASE_URL to http://<YOUR_IP>:3000/api
+- Ensure firewall allows incoming connections on PORT (3000) or use the same port as .env.
+
+B. Temporary public URL with ngrok (no DNS)
+- Install ngrok (https://ngrok.com/).
+- Run: ngrok http 3000
+- Copy the https://xxxx.ngrok.io URL and set BASE_URL in mobile app to https://xxxx.ngrok.io/api
+- Keep ngrok running while testing. Good for quick demos.
+
+C. Deploy a full Express server (recommended if you want a persistent backend)
+- Use Render, Railway, Heroku, or similar (these run your Node/Express app without code changes).
+- Steps (generic):
+  1. Push project to a Git provider (GitHub/GitLab).
+  2. Create a new service on Render/Railway/Heroku and connect your repo.
+  3. Set environment variables in the host dashboard: DB_HOST, DB_USER, DB_PASS, DB_NAME, PORT.
+  4. Set the start command to: node server.js
+  5. Deploy and note the public HTTPS URL, set BASE_URL in mobile app accordingly.
+- These platforms will give you a stable URL and let you set env vars in a dashboard.
+
+D. Deploy as Serverless on Vercel (requires converting endpoints)
+- Vercel serves serverless functions from an /api folder. If you want to use Vercel:
+  1. Create lightweight serverless handlers for each endpoint in /api (e.g. api/tickets.js) that export default (req, res) => { ... } and use mysql2 to connect.
+  2. Move environment variables to Vercel Project Settings (Environment Variables).
+  3. Deploy via `vercel` or connect your repo to Vercel.
+  4. Vercel functions run on demand; adapt connection pooling (create new connection per invocation or reuse a global pool).
+- If your app uses many Express middlewares, consider deploying the Express app to Render/Heroku instead of converting it.
+
+E. Docker + VPS (full control)
+- Build a Dockerfile that runs node server.js and expose the port.
+- Run on a VPS, set up a reverse proxy (Nginx), and get TLS via Let's Encrypt.
+- Set DB connection either to a managed DB or a separate container and secure network access.
+
+Security & production tips
+- Never commit `.env` to source control.
+- Use strong DB credentials and restrict DB access to trusted hosts (or use private networks).
+- Use HTTPS in production (ngrok provides HTTPS; hosted platforms give it automatically).
+- Consider soft-delete (deleted_at) for recoverability, and backups for your MySQL database.
+- Configure connection pooling and proper timeouts for production traffic.
+
 # End of guide
