@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "Ticketmaster",
-    "slug": "Ticketmaster",
+    "name": "ticketmaster",
+    "slug": "ticketmaster",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -30,3 +30,4 @@
     ]
   }
 }
+
